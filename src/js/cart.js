@@ -3,6 +3,8 @@ import { getLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  //I think the problem is that the local storage is returning an object instead of an array and .map() can onoy be used on arrays.
+  //I'm having an issue getting the object to convert to an array.
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
 
