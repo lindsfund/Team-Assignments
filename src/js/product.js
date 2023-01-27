@@ -5,9 +5,10 @@ import ProductDetails from "./ProductDetails.mjs";
 const dataSource = new ProductData("tents");
 const productID = getParam('product');
 
-console.log(dataSource.findProductById(productID));
+//console.log(dataSource.findProductById(productID));
 
 const product = new ProductDetails(productID, dataSource);
+console.log(product);
 product.init();
 
 // --------------------Removed week2 team assignment_ moved to ProductDetails.mjs
