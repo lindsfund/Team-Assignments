@@ -112,6 +112,8 @@ button {
 
 /* End cart icon styles */
 
+
+
 .mission {
   padding: 0 0.5em;
   /* margin: 0.5em 0; */
@@ -219,4 +221,38 @@ button {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+/* product icon grid - week 6 */
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding:0px;
+  margin: 10px;
+
+}
+.product-grid li {
+width:100px;
+list-style-type: none;
+padding:.5em;
+margin:1em;
+}
+
+.product-grid h2 {
+  margin: 0px;
+  font-size: 1em;
+  text-decoration: none;
+  text-align: center;
+}
+
+.product-grid a {
+  color:#303030;
+  text-decoration: none;
+  
+}
+
+.product-grid a:hover {
+  text-decoration: underline;
 }

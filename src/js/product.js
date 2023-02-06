@@ -4,7 +4,13 @@ import ProductDetails from "./ProductDetails.mjs";
 
 loadHeaderFooter();
 
-const dataSource = new ProductData("tents");
+const category = getParam('category');
+const dataSource = new ProductData();
+const listElement = document.querySelector('.product-grid');
+const myList = new ProductList(category, dataSource, listElement);
+
+
+myList.init();
 const productID = getParam('product');
 
 //console.log(dataSource.findProductById(productID));
