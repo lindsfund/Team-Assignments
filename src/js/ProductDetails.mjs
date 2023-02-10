@@ -38,12 +38,12 @@ export default class ProductDetails {
   addToCart() {
     setLocalStorage("so-cart", this.product);
   }
-  // renderProductDetails(selector) {
-  //   const element = document.querySelector(selector);
-  //   element.innerHTML = productDetailsTemplate(this.product)
-  //   /* element.insertAdjacentHTML(
-  //     "afterBegin",
-  //     productDetailsTemplate(this.product)
-  //   ); */
-  // }
+  renderProductDetails(selector) {
+     const element = document.querySelector(selector);
+     element.innerHTML = productDetailsTemplate(this.product)
+     element.insertAdjacentHTML(
+       "afterBegin",
+      productDetailsTemplate(this.product)
+    );
+  }
 }

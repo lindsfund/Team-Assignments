@@ -25,14 +25,29 @@ export function getParam(param) {
 }
 
 //pasted from productDetails
-export function renderWithTemplate(template, parentElement, data, callback) {
-  parentElement.insertAdjacentHTML("afterbegin", template);
-  if(callback) {
-    callback(data);
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = false
+) {
+  const htmlStrings = list.map(templateFn);
+  // if clear is true we need to clear out the contents of the parent.
+  if (clear) {
+    parentElement.innerHTML = "";
   }
-  
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
+// function to take an optional object and a template and insert the objects as HTML into the DOM
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML("afterbegin", template);
+  //if there is a callback...call it and pass data
+  if (callback) {
+    callback(data);
+  }
+}
 export async function loadTemplate(path){
   const response = await fetch(path);
   const template = await response.text();
