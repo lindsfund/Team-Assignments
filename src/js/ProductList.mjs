@@ -18,14 +18,11 @@ this.dataSource = dataSource;
 this.listElement = listElement;
 }
   async init() {
-      const list = await this.dataSource.getData();
+      const list = await this.dataSource.getData(this.category);
       this.renderProductList(list)
     }
     renderProductList(list) {
-      for (const product of list){
-        const li = document.createElement("li")
-        li.innerHTML = productCardTemplate(product)
-        this.listElement.appendChild(li)
-      }
+      renderWithTemplate(productCardTemplate, this.listElement, list);
     }
+    
 }
