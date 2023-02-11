@@ -1,9 +1,10 @@
-import {renderWithTemplate} from "./utils.mjs"
+import {renderListWithTemplate, renderWithTemplate} from './utils.mjs';
+
 function productCardTemplate(product) {
     return `<li class="product-card">
     <a href="/product_pages/index.html?product=${product.Id}">
     <img
-      src="${product.Image}"
+      src="${product.Images.PrimaryMedium}"
       alt="Image of ${product.Name}"
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -20,10 +21,12 @@ this.listElement = listElement;
 }
   async init() {
       const list = await this.dataSource.getData(this.category);
-      this.renderProductList(list)
+      this.renderProductList(list);
+      //set the category and the parallel title
+      document.querySelector('.title').innerHTML = this.category;
     }
     renderProductList(list) {
-      renderWithTemplate(productCardTemplate, this.listElement, list);
+      renderListWithTemplate(productCardTemplate, this.listElement, list);
     }
     
 }
