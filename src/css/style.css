@@ -112,8 +112,6 @@ button {
 
 /* End cart icon styles */
 
-
-
 .mission {
   padding: 0 0.5em;
   /* margin: 0.5em 0; */
@@ -229,15 +227,14 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  padding:0px;
+  padding: 0px;
   margin: 10px;
-
 }
 .product-grid li {
-width:100px;
-list-style-type: none;
-padding:.5em;
-margin:1em;
+  width: 100px;
+  list-style-type: none;
+  padding: 0.5em;
+  margin: 1em;
 }
 
 .product-grid h2 {
@@ -248,9 +245,8 @@ margin:1em;
 }
 
 .product-grid a {
-  color:#303030;
+  color: #303030;
   text-decoration: none;
-  
 }
 
 .product-grid a:hover {
