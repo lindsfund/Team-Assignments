@@ -9,6 +9,7 @@
     <title>Sleep Outside | Checkout</title>
 
     <link rel="stylesheet" href="css/style.css" />
+    <script src="/Team-Assignments/src/js/checkOut.mjs"></script>
   </head>
 
   <body>
@@ -60,6 +61,41 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+
+      <form>
+        <fieldset>
+          <legend>Shipping:</legend>
+        <label for="fname">First name</label><br>
+        <input type="text" id="fname" name="fname" required><br>
+        <label for="lname">Last name</label><br>
+        <input type="text" id="lname" name="lname" required>
+        <label for="street">Street</label><br>
+        <input type="text" id="street" name="street" required>
+        <label for="city">City</label><br>
+        <input type="text" id="city" name="city" required>
+        <label for="state">State</label><br>
+        <input type="text" id="state" name="state" required>
+        <label for="zip">Zip</label><br>
+        <input type="text" id="zip" name="zip" required>
+        </fieldset>
+        
+        <fieldset>
+          <legend>Payment:</legend>
+        <label for="card">Card number</label><br>
+        <input type="text" id="card" name="card" required><br>
+        <label for="expiration">Expiration</label><br>
+        <input type="text" id="expiration" name="expiration" required>
+        <label for="scode">Security code</label><br>
+        <input type="text" id="scode" name="scode" required>
+        </fieldset>
+
+        <fieldset>
+          <legend>Order Summary:</legend>
+      
+        </fieldset>
+        
+        <input type="submit" value="Checkout">
+      </form>
     </main>
 
     <footer>&copy;NOT a real business</footer>
