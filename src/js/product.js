@@ -1,4 +1,4 @@
-import ProductData from "./ProductData.mjs";
+import ProductData from "./ExternalServices.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 import ProductList from "./ProductList.mjs";
 import { setLocalStorage, getParam, loadHeaderFooter } from "./utils.mjs";
