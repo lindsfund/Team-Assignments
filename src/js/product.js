@@ -1,19 +1,19 @@
-import ProductData from "./ExternalServices.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductDetails from "./ProductDetails.mjs";
-import ProductList from "./ProductList.mjs";
-import { setLocalStorage, getParam, loadHeaderFooter } from "./utils.mjs";
+// import ProductList from "./ProductList.mjs";
+import { setLocalStorage, getParam} from "./utils.mjs";
 
-loadHeaderFooter();
 
-const category = getParam("category");
+
+//const category = getParam("category");
 const productId = getParam("product");
-const listElement = document.querySelector(".product-list");
-const dataSource = new ProductData();
-const myList = new ProductList(category, dataSource, listElement);
-const product = new ProductDetails(productId, dataSource);
+//const listElement = document.querySelector(".product-list");
+const dataSource = new ExternalServices();
+//const myList = new ProductList(category, dataSource, listElement);
 
+const product = new ProductDetails(productId, dataSource);
 product.init();
-myList.init();
+//myList.init();
 
 // --- duplicate code
 // function addProductToCart(product) {
