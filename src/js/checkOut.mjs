@@ -1,5 +1,7 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, loadHeaderFooter} from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
+
+loadHeaderFooter();
 
 const services = new ExternalServices();
 function formDataToJSON(formElement) {
