@@ -1,7 +1,6 @@
-import { getLocalStorage, loadHeaderFooter} from "./utils.mjs";
+import { getLocalStorage} from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
-loadHeaderFooter();
 
 const services = new ExternalServices();
 function formDataToJSON(formElement) {
@@ -89,6 +88,8 @@ export default class CheckoutProcess {
     try {
       const res = await services.checkout(json);
       console.log(res);
+      setLocalStorage("so-cart", []);
+      location.assign("/checkout/success.html");
     } catch (err) {
       console.log(err);
     }
