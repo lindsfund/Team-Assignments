@@ -38,18 +38,14 @@ export default class ProductDetails {
       .addEventListener('click', this.addToCart.bind(this));
   }
   addToCart() {
-    // setLocalStorage('so-cart', this.product);
-    let cartContents = getLocalStorage('so-cart');
-    //if it's empty build an empty array
-    if(!cartContents){
-      cartContents =[];
-    }
-
-    //add current product the the cart list
-    console.log(cartContents);
-    cartContents.push(this.product);
-    setLocalStorage('so-cart', cartContents);
-
+     //is there anything in the cart if so grab it
+     let cartContents = getLocalStorage('so-cart');
+     if(!cartContents){
+       cartContents =[];
+     }
+     //add current product the the cart list
+     cartContents.push(this.product);
+     setLocalStorage('so-cart', cartContents);
   }
   renderProductDetails(selector) {
      const element = document.querySelector(selector);
