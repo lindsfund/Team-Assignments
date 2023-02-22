@@ -49,7 +49,7 @@ export default class ProductDetails {
   }
   renderProductDetails(selector) {
      const element = document.querySelector(selector);
-     element.innerHTML = productDetailsTemplate(this.product)
+     // element.innerHTML = productDetailsTemplate(this.product) -- responsible for second product on page
      element.insertAdjacentHTML(
        'afterBegin',
       productDetailsTemplate(this.product)
