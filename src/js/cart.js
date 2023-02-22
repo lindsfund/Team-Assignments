@@ -1,9 +1,7 @@
-import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 import ShoppingCart from "./shoppingCart.mjs";
 
 loadHeaderFooter();
 
 const cart = new ShoppingCart("so-cart", ".product-list");
 cart.init();
-
-

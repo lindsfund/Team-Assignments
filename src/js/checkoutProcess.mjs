@@ -1,4 +1,4 @@
-import { getLocalStorage} from "./utils.mjs";
+import { getLocalStorage, setLocalStorage} from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 
@@ -88,7 +88,9 @@ export default class CheckoutProcess {
     try {
       const res = await services.checkout(json);
       console.log(res);
+      setLocalStorage('so-cart', []); //once everything else is done...clear the localStorage
       location.assign("../checkout/success.html");
+      
     } catch (err) {
       console.log(err);
     }
