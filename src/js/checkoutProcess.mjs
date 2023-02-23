@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage} from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, alertMessage} from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 
@@ -93,6 +93,10 @@ export default class CheckoutProcess {
       
     } catch (err) {
       console.log(err);
+      //alert errors
+      for(let message in err.message) {
+        alertMessage(err.message[message]);
+      }
     }
   }
 }
