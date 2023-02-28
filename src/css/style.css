@@ -317,3 +317,38 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+/*Admin page form*/
+
+.login {
+  
+
+}
+
+.loginform {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  margin-left: 15em;
+  margin-right: 15em;
+  margin-top: 4em;
+  margin-bottom: 10em;
+  background-color: #f0a868;
+  
+  
+  
+}
+
+#submitButton {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin: 1em;
+}
+.loginform label, .loginform input {
+  padding: 0.5em;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  
+}
+
+/*End admin page css*/
