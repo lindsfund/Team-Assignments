@@ -1,4 +1,6 @@
-import { setLocalStorage, getLocalStorage, renderWithTemplate } from './utils.mjs';
+import { setLocalStorage, getLocalStorage, loadHeaderFooter} from './utils.mjs';
+
+loadHeaderFooter();
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -28,7 +30,7 @@ export default class ProductDetails {
     // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
     // once we have the product details we can render out the HTML
-    this.renderWithTemplate('main');
+    this.renderProductDetails('main');
     // once the HTML is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
     document
@@ -36,21 +38,18 @@ export default class ProductDetails {
       .addEventListener('click', this.addToCart.bind(this));
   }
   addToCart() {
-    setLocalStorage('so-cart', this.product);
-    let cartContents = getLocalStorage('so-cart');
-    //if it's empty build an empty array
-    if(!cartContents){
-      cartContents =[];
-    }
-
-    //add current product the the cart list
-    cartContents.push(this.product);
-    setLocalStorage('so-cart', cartContents);
-
+     //is there anything in the cart if so grab it
+     let cartContents = getLocalStorage('so-cart');
+     if(!cartContents){
+       cartContents =[];
+     }
+     //add current product the the cart list
+     cartContents.push(this.product);
+     setLocalStorage('so-cart', cartContents);
   }
   renderProductDetails(selector) {
      const element = document.querySelector(selector);
-     element.innerHTML = productDetailsTemplate(this.product)
+     // element.innerHTML = productDetailsTemplate(this.product) -- responsible for second product on page
      element.insertAdjacentHTML(
        'afterBegin',
       productDetailsTemplate(this.product)
