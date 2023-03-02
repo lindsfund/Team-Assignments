@@ -34,4 +34,34 @@ export default class ExternalServices {
     };
     return await fetch(baseURL + "checkout/", options).then(convertToJson);
   }
+
+  //login request
+async loginReq(user) {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    };
+    const response = await fetch(baseURL + "login", options).then(
+      convertToJson
+    );
+    // console.log(response.accessToken); //it's a JWT!!!!
+    return response.accessToken;
+  }
+
+  //get orders from server
+  async getOrders(token){
+    const options = {
+      method:'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(baseURL + 'orders', options)
+      .then(convertToJson);
+      console.log(response[0]);
+      return response;
+  }
 }
