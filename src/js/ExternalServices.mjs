@@ -1,4 +1,4 @@
-const baseURL = "http://server-nodejs.cit.byui.edu:3000/";
+const baseURL = 'http://server-nodejs.cit.byui.edu:3000/';
 async function convertToJson(res) {
   const data = await res.json();
   if (res.ok) {
@@ -26,12 +26,40 @@ export default class ExternalServices {
   }
   async checkout(payload) {
     const options = {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(payload),
     };
-    return await fetch(baseURL + "checkout/", options).then(convertToJson);
+    return await fetch(baseURL + 'checkout/', options).then(convertToJson);
   }
-}
+  async loginRequest(credentials){
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(credentials),
+
+    };
+    const response = await fetch(baseURL + 'login', options).then(convertToJson);
+    console.log(response.accessToken);
+    return response.accessToken;
+    }
+
+    async getOrder(token){
+      const options = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },  
+      };
+      const response = await fetch(baseURL + 'orders', options).then(convertToJson);
+      console.log(response);
+      return response;
+
+    }
+
+
+  }
