@@ -19,10 +19,10 @@ export default class Admin {
         this.newXservices = new ExternalServices;
         this.token = null;
     }
-    async login(credentials) {
+    async login(credentials, next) {
         try{
             this.token = await this.newXservices.loginRequest(credentials); 
-            //next();
+            next();
         }
         catch(err){ 
             alertMessage(err.message.message);
